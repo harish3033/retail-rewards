@@ -1,0 +1,23 @@
+server.port: 8080
+management.endpoints.web.exposure.include: '*'
+
+spring:
+  application.name: retail-rewards
+  h2.console.enabled: true
+  datasource:
+    url: jdbc:h2:mem:retailRewards
+    username: admin
+    password: p@ssword
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: none
+    show-sql: true
+  jackson.serialization.write_dates_as_timestamps: false
+
+logging:
+  pattern.console: '%d{yyyy-MM-dd HH:mm:ss} [%-5level] [%C:%L] - %m%n'
+  file: logs/app.log
+  level:
+    org.springframework: info
+    com.retail.rewards: debug
